@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <string.h>
 
 typedef struct directive
 {
@@ -12,6 +13,8 @@ typedef struct directive
 } dir;
 
 int _strlen(char *s);
+char *itoa(int n);
+char *reverseStr(char string[]);
 void reset_buffer(char *buffer, int size);
 int put_char(char *buffer, va_list list);
 int put_string(char *buffer, va_list list);
