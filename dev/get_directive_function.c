@@ -22,5 +22,5 @@ int  (*get_directive_function(char c))(char *s, va_list)
 			if (c == format[i].ch)
 				return (format[i].f);
 		}
-		return (put_percent);
+		return (NULL);
 }

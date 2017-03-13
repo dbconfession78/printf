@@ -4,25 +4,32 @@ int _printf(char const *format, ...)
 {
 	va_list list;
 	char buffer[1024];
-	char type;
-	int buffer_len = 0, (*func)(char *buffer, va_list) = NULL;
+	int buffer_len = 0;
+	int (*func)(char *buffer, va_list) = NULL;
+	unsigned int i = 0;
+	int skip;
+
 	va_start(list, format);
 	reset_buffer(buffer, 1024);
 
 	while (format && *format)
 	{
+		skip = 0;
 		if (*format == '%')
 		{
-			format++; //skip first %
-			type = *format; // set type to s,c etc.
-			func = get_directive_function(type); // get matching func for type
-			buffer_len+=func(buffer + buffer_len, list); // set next index to write in buffer
-			format++; // advance input's pointer after handling format
+			while(*(format + 1) == ' ')
+				format++;
+			func = get_directive_function(*(format + 1));
+			if (func)
+			{
+				buffer_len += func(buffer + buffer_len, list);
+				format+=2; skip = 1;
+			}
 		}
-		else
+		if (skip == 0)
 		{
 			buffer[buffer_len] = *format;
-			buffer_len++; format++;
+			format++; buffer_len++;
 		}
 	}
 	write(1, buffer, buffer_len);
@@ -34,6 +41,7 @@ int _printf(char const *format, ...)
 int main(void)
 {
 	char *str = "Hello";
-	_printf("%%%%% %s_ _ _ WORLD!!!\n", str);
+	_printf("%%%%%   %   %s WORLD!!\n", str);
+	printf("%%%%%   %   %s WORLD!!\n", str);
 	return (0);
 }

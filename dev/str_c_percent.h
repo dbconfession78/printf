@@ -28,8 +28,7 @@ int put_string(char *buffer, va_list list)
 
 int put_percent(char *buffer, va_list list)
 {
-	*buffer = '%';
-
+	buffer[0] = '%';
 	return(1);
 }
 
