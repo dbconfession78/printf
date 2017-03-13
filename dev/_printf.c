@@ -6,7 +6,6 @@ int _printf(char const *format, ...)
 	char buffer[1024];
 	int buffer_len = 0;
 	int (*func)(char *buffer, va_list) = NULL;
-	unsigned int i = 0;
 	int skip;
 
 	va_start(list, format);

@@ -13,9 +13,9 @@
 
 char *reverseStr(char string[]) {
 	char *result = malloc(strlen(string));
-	int i;
+	unsigned int i;
 
-	for(i=0; i<strlen(string); i++) {
+	for(i = 0; i < strlen(string); i++) {
 		result[i] = string[strlen(string)-1-i];
 	}
 

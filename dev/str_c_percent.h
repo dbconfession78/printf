@@ -35,6 +35,7 @@ int put_string(char *buffer, va_list list)
 
 int put_percent(char *buffer, va_list list)
 {
+	(void) list;
 	buffer[0] = '%';
 	return(1);
 }
@@ -110,6 +111,7 @@ int put_unsigned(char *buffer, va_list list)
 }
 int put_float(char *buffer, va_list list)
 {
+	(void) buffer; (void) list; /* remove these before working on func */
 	return(1); // calc length to return
 }
 
@@ -119,7 +121,7 @@ int put_hex_lower(char *buffer, va_list list)
 	unsigned int num = va_arg(list, unsigned int);
 	char *hex = uitohex(num);
 	printf("%s\n", hex);
-	int i;
+	unsigned int i;
 	for (i = 0; i < (unsigned int) strlen(hex); i++)
 	{
 		buffer[i] = hex[i];
@@ -132,7 +134,7 @@ int put_hex_upper(char *buffer, va_list list)
 {
 	unsigned int num = va_arg(list, unsigned int);
 	char *hex = uitohex(num);
-	int i;
+	unsigned int i;
 	for (i = 0; i < (unsigned int)strlen(hex); i++)
 	{
 		if (hex[i] >= 'a' && hex[i] <= 'f')

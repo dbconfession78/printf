@@ -25,6 +25,7 @@ int (*get_directive_function(char c))(char *s, va_list);
 int put_int(char *buffer, va_list list);
 int put_hex_lower(char *buffer, va_list list);
 int put_hex_upper(char *buffer, va_list list);
+char *uitohex(unsigned int);
 int put_binary(char *buffer, va_list list);
 int put_float(char *buffer, va_list list);
 int put_oct(char *buffer, va_list list);
