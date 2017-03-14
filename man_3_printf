@@ -22,8 +22,19 @@ If an output error is encountered, a negative value is returned.
 .IR "conversion specifier" ". In between there may be (in this order) zero or more " "flags" ", an optional minimum " "field width" ", an optional " " precision" " and an optional " "length modifier".
 
 The arguments must correspond properly with the conversion specifier.  By default, the arguments are used in the order given, where each conversion specifier asks for the next argument (returning an error if the number of specifiers doesn't match number of arguments).
+
+.SS Sample Use
+    _printf("Let's try to printf a simple sentence.\n");
+    _printf("Length:[%d, %i]\n", len, len);
+    _printf("Unsigned:[%u]\n", ui); %i]\n", len, len);
+    _printf("Negative:[%d]\n", -762534);
+    _printf("Unsigned octal:[%o]\n", ui);
+    _printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+    _printf("Character:[%c]\n", 'H');
+    _printf("String:[%s]\n", "I am a string !");
+    _printf("Address:[%p]\n", addr);
 .SH BUGS
-TBD
+doesn't handle strings longer than 1024 bytes
 
 .SH AUTHOR
  Stuart Kuredjian,  108@holbertonschool.com
