@@ -21,10 +21,6 @@ int _printf(char const *format, ...)
 		skip = 0;
 		if (*format == '%')
 		{
-			if (_strlen(format) == 1)
-			{
-				return (-1);
-			}
 				while (*(format + 1) == ' ')
 				format++;
 			func = get_directive_function(*(format + 1));
