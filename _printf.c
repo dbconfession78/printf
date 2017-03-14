@@ -45,14 +45,3 @@ int _printf(char const *format, ...)
 	va_end(list);
 	return (buffer_len);
 }
-
-int main(void)
-{
-
-	int a = _printf("%");
-	int b = printf("%");
-
-	printf("%d\n", a);
-	printf("%d\n", b);
-	return (0);
-}
