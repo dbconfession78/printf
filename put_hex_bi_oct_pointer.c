@@ -120,9 +120,9 @@ int put_pointer_address(char *buffer, va_list list)
 	hex_num = (size_t)(va_arg(list, void *));
 	if (hex_num == (size_t)NULL)
 	{
-		for (i = 0; i < 6; i++)
+		for (i = 0; i < 5; i++)
 			buffer[i] = nil[i];
-		return (6);
+		return (5);
 	}
 	while (hex_num != 0)
 	{

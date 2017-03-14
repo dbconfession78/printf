@@ -17,6 +17,16 @@ This repo contains a replicated version of the C standard library function, prin
 ..* `va_copy` (`man 3 va_copy`)
 ..* `va_arg` (`man 3 va_arg`)
 
+## Sample Use
+    _printf("Let's try to printf a simple sentence.\n");
+    _printf("Length:[%d, %i]\n", len, len);
+    _printf("Unsigned:[%u]\n", ui); %i]\n", len, len);
+    _printf("Negative:[%d]\n", -762534);
+    _printf("Unsigned octal:[%o]\n", ui);
+    _printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+    _printf("Character:[%c]\n", 'H');
+    _printf("String:[%s]\n", "I am a string !");
+    _printf("Address:[%p]\n", addr);
 
 ## File Descriptions
 - `holberton.h`: Header file containing  `<stdarg.h>`, constant `BUFFER_SIZE`, `directive` structure, all program function prototypes.
