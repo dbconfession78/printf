@@ -28,8 +28,6 @@ int _printf(char const *format, ...)
 			if (func)
 			{
 				buffer_len += func(buffer + buffer_len, list);
-				buffer_len = strlen(buffer);
-				printf("%d", buffer_len);
 				getchar();
 				format += 2; skip = 1;
 			}
