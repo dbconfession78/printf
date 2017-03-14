@@ -84,6 +84,7 @@ int put_oct(char *buffer, va_list list)
 {
 	long int rem[50], i = 0, j = 0, length = 0;
 	long int num = va_arg(list, long int);
+
 	if (num == 0)
 	{
 		buffer[0] = '0';
@@ -113,9 +114,16 @@ int put_pointer_address(char *buffer, va_list list)
 	char str[12], *strp;
 	int i, j, remainder;
 	size_t hex_num;
+	char *nil = "(nil)";
 
 	i = j = 0;
 	hex_num = (size_t)(va_arg(list, void *));
+	if (hex_num == (size_t)NULL)
+	{
+		for (i = 0; i < 5; i++)
+			buffer[i] = nil[i];
+		return (5);
+	}
 	while (hex_num != 0)
 	{
 		remainder = hex_num % 16;
@@ -127,7 +135,6 @@ int put_pointer_address(char *buffer, va_list list)
 		i++;
 	}
 	str[i] = '\0';
-
 	strp = malloc(sizeof(char) * i);
 	if (strp == NULL)
 		return (0);
@@ -137,14 +144,11 @@ int put_pointer_address(char *buffer, va_list list)
 		strp[j] = str[i];
 	}
 	strp[j] = '\0';
-
 	i = j = 0;
 	buffer[i++] = '0';
 	buffer[i++] = 'x';
 	while (strp[j] != '\0')
-	{
 		buffer[i++] = strp[j++];
-	}
 	free(strp);
 	return (i);
 }

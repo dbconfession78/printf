@@ -31,15 +31,15 @@ int put_rot13(char *buffer, va_list list)
 	char *rot;
 	int i;
 	int j;
-	char rot13[] = " 1234567890-=!@#$%^&*()_+`~[]\\{}|;':\",./<>?NOPQRSTUVW\
-XYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
-	char l[] = " 1234567890-=!@#$%^&*()_+`~[]\\{}|;':\",./<>?ABCDEFGHIJKLMN\
-OPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char rot13[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	char l[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
 	rot = va_arg(list, char *);
+	if (rot == NULL)
+		return (0);
 	for (i = 0; rot[i] != '\0'; i++)
 	{
-		for (j = 0; j < _strlen(rot13); j++)
+		for (j = 0; j < 52; j++)
 		{
 			if (rot[i] == l[j])
 			{
@@ -47,6 +47,8 @@ OPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 				break;
 			}
 		}
+		if (j == 52)
+			buffer[i] = rot[i];
 	}
 	return (i);
 }

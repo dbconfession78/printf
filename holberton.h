@@ -1,5 +1,6 @@
 #ifndef HOLBERTON_H
 #define HOLBERTON_H
+#define MAX_BYTES 1024
 #include <limits.h>
 #include <stdarg.h>
 #include <stdio.h>

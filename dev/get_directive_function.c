@@ -1,6 +1,10 @@
 #include "holberton.h"
-#include "str_c_percent.h"
-
+/**
+ * get_directive_function - this function helps _printf.c decide
+ * which function to use depending on the letter after the %
+ * @c: input letter which represents a conversion specifier
+ * Return: the function to be used ot NULL is no match is found
+ */
 int  (*get_directive_function(char c))(char *s, va_list)
 {
 	int i;
@@ -11,12 +15,13 @@ int  (*get_directive_function(char c))(char *s, va_list)
 		{'d', put_int},
 		{'i', put_int},
 		{'u', put_unsigned},
-		{'f', put_float},
 		{'x', put_hex_lower},
 		{'X', put_hex_upper},
 		{'b', put_binary},
 		{'o', put_oct},
 		{'p', put_pointer_address},
+		{'r', put_reverse},
+		{'R', put_rot13},
 		{'\0', NULL}
 	};
 
