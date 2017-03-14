@@ -28,6 +28,7 @@ int _printf(char const *format, ...)
 			if (func)
 			{
 				buffer_len += func(buffer + buffer_len, list);
+				buffer_len = strlen(buffer);
 				format += 2; skip = 1;
 			}
 		}
