@@ -23,6 +23,11 @@ int put_string(char *buffer, va_list list)
 	if (str)
 	{
 		for (i = 0; i < _strlen(str); i++)
+			if (strlen(buffer) == 10)
+			{
+				printf ("YO!!!");
+				getchar();
+			}
 			buffer[i] = str[i];
 		return (i);
 	}
@@ -120,7 +125,6 @@ int put_hex_lower(char *buffer, va_list list)
 {
 	unsigned int num = va_arg(list, unsigned int);
 	char *hex = uitohex(num);
-	printf("%s\n", hex);
 	unsigned int i;
 	for (i = 0; i < (unsigned int) strlen(hex); i++)
 	{
@@ -144,7 +148,6 @@ int put_hex_upper(char *buffer, va_list list)
 	{
 		buffer[i] = (hex[i]);
 	}
-	printf("%s\n", buffer);
 	return(i);
 
 }
