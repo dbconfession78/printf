@@ -14,7 +14,8 @@ int _printf(char const *format, ...)
 
 	va_start(list, format);
 	reset_buffer(buffer, 1024);
-	if (!format)
+
+	if (!format || (format[0] == '%' && strlen(format) == 1))
 		return (-1);
 	while (format && *format)
 	{
