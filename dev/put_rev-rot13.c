@@ -1,0 +1,52 @@
+#include "holberton.h"
+/**
+ * put_reverse - prints a string in reverse
+ * @buffer: input buffer
+ * @list: input value
+ * Return: buffer advancement
+ */
+int put_reverse(char *buffer, va_list list)
+{
+	int len, i, j;
+	char *str;
+
+	i = j = 0;
+	str = va_arg(list, char *);
+	len = _strlen(str);
+
+	for (i = (len - 1); i >= 0; i--, j++)
+	{
+		buffer[i] = str[j];
+	}
+	return (j);
+}
+/**
+ * put_rot13 - prints a string in rot13
+ * @buffer: input buffer
+ * @list: input value
+ * Return: buffer advancement
+ */
+int put_rot13(char *buffer, va_list list)
+{
+	char *rot;
+	int i;
+	int j;
+	char rot13[] = " 1234567890-=!@#$%^&*()_+`~[]\\{}|;':\",./<>?NOPQRSTUVW\
+XYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	char l[] = " 1234567890-=!@#$%^&*()_+`~[]\\{}|;':\",./<>?ABCDEFGHIJKLMN\
+OPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+
+	rot = va_arg(list, char *);
+	for (i = 0; rot[i] != '\0'; i++)
+	{
+		for (j = 0; j < _strlen(rot13); j++)
+		{
+			if (rot[i] == l[j])
+			{
+				buffer[i] = rot13[j];
+				break;
+			}
+		}
+	}
+	return (i);
+}
