@@ -24,7 +24,7 @@ char *reverseStr(char string[]) {
 
 char dectohex(unsigned int r)
 {
-	if (r >= 0 && r <= 9)
+	if (r <= 9)
 		return (r + '0');
 	switch (r)
 	{
