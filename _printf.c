@@ -33,6 +33,16 @@ int _printf(char const *format, ...)
 		}
 		if (skip == 0)
 		{
+			if (buffer_len == 1022 * buffer_mult)
+			{
+				strcpy(temp_buffer, buffer);
+				buffer_mult++;
+				buffer = realloc(&buffer, 1024 * buffer_mult);
+				reset_buffer(buffer,  1024 * buffer_mult);
+				strcpy(buffer, temp_buffer);
+				reset_buffer(temp_buffer, 1024);
+			}
+
 			buffer[buffer_len] = *format;
 			format++; buffer_len++;
 		}
