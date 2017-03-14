@@ -13,7 +13,6 @@ int _printf(char const *format, ...)
 	int skip;
 
 	va_start(list, format);
-	va_start(list, format);
 	reset_buffer(buffer, 1024);
 
 	if (!format || (format[0] == '%' && strlen(format) == 1))
