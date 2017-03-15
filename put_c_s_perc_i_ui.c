@@ -29,8 +29,7 @@ int put_string(char *buffer, va_list list)
 	{
 		for (i = 0; str[i]; i++)
 		{
-			/* buffer[i] = str[i]; */
-			_putchar(str[i]);
+			buffer[i] = str[i];
 		}
 
 		return (i);
