@@ -1,0 +1,8 @@
+*~
+.gitignore
+*#*
+*_MINE.c
+*template*.c
+*main.c
+*betty
+a.out
