@@ -12,7 +12,8 @@ int  (*get_directive_function(char c))(char *s, va_list)
 		{'i', put_int},
 		{'u', put_unsigned},
 		{'f', put_float},
-		{'x', put_hex},
+		{'x', put_hex_lower},
+		{'X', put_hex_upper},
 		{'b', put_binary},
 		{'o', put_oct},
 		{'\0', NULL}

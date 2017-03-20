@@ -111,9 +111,17 @@ int put_float(char *buffer, va_list list)
 	return(1); // calc length to return
 }
 
-int put_hex(char *buffer, va_list list)
+int put_hex_lower(char *buffer, va_list list)
 {
-
+	unsigned int num = 2147484671;
+	char *hex = uitohex(num);
+	printf("%s\n", hex);
+	getchar();
+	return(1); // calc length to return
+}
+int put_hex_upper(char *buffer, va_list list)
+{
+	uitohex(va_arg(list, unsigned int));
 	return(1); // calc length to return
 }
 
