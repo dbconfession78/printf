@@ -87,13 +87,6 @@ int put_unsigned(char *buffer, va_list list)
 	num = original_num;
 	exp = 1;
 
-	if (rdgt < 0)
-	{
-		buffer[i++] = '-';
-		rdgt *= -1;
-		num *= -1;
-		original_num *= -1;
-	}
 	if (num > 0)
 	{
 		while ((num / 10) != 0)
