@@ -16,7 +16,7 @@ int put_string(char *buffer, va_list list)
 {
 	int i;
 	char *str = va_arg(list, char*);
-	char *nil = "(nil)";
+	char *nil = "(null)";
 	if (str)
 	{
 		for (i = 0; i < _strlen(str); i++)
@@ -108,7 +108,6 @@ int put_unsigned(char *buffer, va_list list)
 }
 int put_float(char *buffer, va_list list)
 {
-
 	return(1); // calc length to return
 }
 
@@ -120,13 +119,49 @@ int put_hex(char *buffer, va_list list)
 
 int put_binary(char *buffer, va_list list)
 {
+	int c, d, n, n_copy, count;
+	int binary_len = 0;
+	count = 0;
+	n = va_arg(list, int);
+	n_copy = n;
 
-	return(1); // calc length to return
+	while((n_copy /= 2) > 0)
+		binary_len++;
+
+	if (buffer == NULL)
+		exit(EXIT_FAILURE);
+
+	for (c = binary_len; c >= 0; c--)
+	{
+		d = n >> c;
+
+		if (d & 1)
+			*(buffer + count) = 1 + '0';
+		else
+			*(buffer + count) = 0 + '0';
+		count++;
+	}
+	*(buffer + count) = '\0';
+
+	return(++binary_len);
 }
 
 int put_oct(char *buffer, va_list list)
 {
+	long int rem[50], i = 0, j = 0, length = 0;
+	long int num = va_arg(list, long int);
 
-	return(1); //calc length to return
+	while(num > 0)
+	{
+		rem[i] = num % 8;
+		num = num / 8;
+		i++;
+		length++;
+	}
+	for(i = length - 1;i >= 0; i--, j++)
+	{
+		buffer[j] = rem[i] + '0';
+	}
+	return(j);
 }
 #endif
