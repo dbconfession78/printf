@@ -123,7 +123,7 @@ int put_binary(char *buffer, va_list list)
 	unsigned int n, n_copy;
 	int binary_len = 0;
 	count = 0;
-	n = va_arg(list, unsigned int);
+	n = va_arg(list, int);
 	n_copy = n;
 
 	while((n_copy /= 2) > 0)
