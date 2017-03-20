@@ -1,7 +1,10 @@
 #ifndef STRCPERCENT_H
 #define STRCPERCENT_H
-#include "holberton.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include <limits.h>
+#include "holberton.h"
 #include <math.h>
 
 int put_char(char *buffer, va_list list)
@@ -79,7 +82,6 @@ int put_unsigned(char *buffer, va_list list)
 {
 	unsigned int original_num, num, exp;
 	int i, ldgt, rdgt;
-
 	original_num = va_arg(list, int);
 	i = 0;
 	rdgt = original_num % 10;
@@ -111,18 +113,38 @@ int put_float(char *buffer, va_list list)
 	return(1); // calc length to return
 }
 
+// returns warning when compiling
 int put_hex_lower(char *buffer, va_list list)
 {
-	unsigned int num = 2147484671;
+	unsigned int num = va_arg(list, unsigned int);
 	char *hex = uitohex(num);
 	printf("%s\n", hex);
-	getchar();
-	return(1); // calc length to return
+	int i;
+	for (i = 0; i < (unsigned int) strlen(hex); i++)
+	{
+		buffer[i] = hex[i];
+	}
+	return(i);
 }
+
+// returns warning when compiling
 int put_hex_upper(char *buffer, va_list list)
 {
-	uitohex(va_arg(list, unsigned int));
-	return(1); // calc length to return
+	unsigned int num = va_arg(list, unsigned int);
+	char *hex = uitohex(num);
+	int i;
+	for (i = 0; i < (unsigned int)strlen(hex); i++)
+	{
+		if (hex[i] >= 'a' && hex[i] <= 'f')
+			hex[i] = hex[i] - 32;
+	}
+	for (i = 0; i < (unsigned int) strlen(hex); i++)
+	{
+		buffer[i] = (hex[i]);
+	}
+	printf("%s\n", buffer);
+	return(i);
+
 }
 
 int put_binary(char *buffer, va_list list)
