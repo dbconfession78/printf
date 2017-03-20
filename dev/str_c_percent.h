@@ -1,6 +1,9 @@
 #ifndef STRCPERCENT_H
 #define STRCPERCENT_H
 #include "holberton.h"
+#include <limits.h>
+#include <math.h>
+
 int put_char(char *buffer, va_list list)
 {
 	int i = 0;
@@ -72,6 +75,44 @@ int put_int(char *buffer, va_list list)
 	return (i);
 }
 
+int put_unsigned(char *buffer, va_list list)
+{
+	unsigned int original_num, num, exp;
+	int i, ldgt, rdgt;
+
+	original_num = va_arg(list, int);
+	i = 0;
+	rdgt = original_num % 10;
+	original_num /= 10;
+	num = original_num;
+	exp = 1;
+
+	if (rdgt < 0)
+	{
+		buffer[i++] = '-';
+		rdgt *= -1;
+		num *= -1;
+		original_num *= -1;
+	}
+	if (num > 0)
+	{
+		while ((num / 10) != 0)
+		{
+			exp *= 10;
+			num /= 10;
+		}
+		num = original_num;
+		while (exp > 0)
+		{
+			ldgt = num / exp;
+			buffer[i++] = (ldgt + '0');
+			num -= ldgt * exp;
+			exp /= 10;
+		}
+	}
+	buffer[i++] = (rdgt + '0');
+	return (i);
+}
 int put_float(char *buffer, va_list list)
 {
 

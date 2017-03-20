@@ -10,6 +10,7 @@ int  (*get_directive_function(char c))(char *s, va_list)
 		{'%', put_percent},
 		{'d', put_int},
 		{'i', put_int},
+		{'u', put_unsigned},
 		{'f', put_float},
 		{'x', put_hex},
 		{'b', put_binary},
