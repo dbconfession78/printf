@@ -119,17 +119,15 @@ int put_hex(char *buffer, va_list list)
 
 int put_binary(char *buffer, va_list list)
 {
-	int c, d, n, n_copy, count;
+	int c, d, count;
+	unsigned int n, n_copy;
 	int binary_len = 0;
 	count = 0;
-	n = va_arg(list, int);
+	n = va_arg(list, unsigned int);
 	n_copy = n;
 
 	while((n_copy /= 2) > 0)
 		binary_len++;
-
-	if (buffer == NULL)
-		exit(EXIT_FAILURE);
 
 	for (c = binary_len; c >= 0; c--)
 	{
