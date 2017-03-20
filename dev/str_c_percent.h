@@ -1,10 +1,11 @@
 #ifndef STRCPERCENT_H
 #define STRCPERCENT_H
 #include "holberton.h"
-
 int put_char(char *buffer, va_list list)
 {
+	int i = 0;
 
+	buffer[i] = va_arg(list, int);
 	return(1);
 }
 
@@ -34,8 +35,41 @@ int put_percent(char *buffer, va_list list)
 
 int put_int(char *buffer, va_list list)
 {
+	int original_num, num, ldgt, rdgt, exp;
+	int i;
 
-	return(1); // TODO calc length to return
+	original_num = va_arg(list, int);
+	i = 0;
+	rdgt = original_num % 10;
+	original_num /= 10;
+	num = original_num;
+	exp = 1;
+
+	if (rdgt < 0)
+	{
+		buffer[i++] = '-';
+		rdgt *= -1;
+		num *= -1;
+		original_num *= -1;
+	}
+	if (num > 0)
+	{
+		while ((num / 10) != 0)
+		{
+			exp *= 10;
+			num /= 10;
+		}
+		num = original_num;
+		while (exp > 0)
+		{
+			ldgt = num / exp;
+			buffer[i++] = (ldgt + '0');
+			num -= ldgt * exp;
+			exp /= 10;
+		}
+	}
+	buffer[i++] = (rdgt + '0');
+	return (i);
 }
 
 int put_float(char *buffer, va_list list)
