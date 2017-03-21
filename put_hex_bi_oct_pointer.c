@@ -84,6 +84,7 @@ int put_oct(char *buffer, va_list list)
 {
 	long int rem[50], i = 0, j = 0, length = 0;
 	long int num = va_arg(list, long int);
+
 	if (num == 0)
 	{
 		buffer[0] = '0';
