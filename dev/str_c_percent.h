@@ -15,20 +15,20 @@ int put_char(char *buffer, va_list list)
 	return(1);
 }
 
+// doesn't handle buffer overflow cases yet
 int put_string(char *buffer, va_list list)
 {
 	int i;
 	char *str = va_arg(list, char*);
 	char *nil = "(null)";
+
 	if (str)
 	{
-		for (i = 0; i < _strlen(str); i++)
-			if (strlen(buffer) == 10)
-			{
-				printf ("YO!!!");
-				getchar();
-			}
+		for (i = 0; str[i]; i++)
+		{
 			buffer[i] = str[i];
+		}
+
 		return (i);
 	}
 
