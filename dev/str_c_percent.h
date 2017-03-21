@@ -194,4 +194,46 @@ int put_oct(char *buffer, va_list list)
 	}
 	return(j);
 }
+
+int put_pointer_address(char *buffer, va_list list)
+{
+	char str[12], *strp;
+	int i, j, remainder;
+	size_t hex_num;
+
+	i = j = 0;
+	hex_num = (size_t)(va_arg(list, void *));
+	while (hex_num != 0)
+	{
+		remainder = hex_num % 16;
+		if (remainder > 9)
+			str[i] = remainder + 87;
+		else
+			str[i] = remainder + 48;
+		hex_num /= 16;
+		i++;
+	}
+	str[i] = '\0';
+
+	strp = malloc(sizeof(char) * i);
+	if (strp == NULL)
+		return (0);
+	i--;
+	for (j = 0; i >= 0; j++, i--)
+	{
+		strp[j] = str[i];
+	}
+	strp[j] = '\0';
+	if (strp == NULL)
+		return (0);
+	i = j = 0;
+	buffer[i++] = '0';
+	buffer[i++]= 'x';
+	while (strp[j] != '\0')
+	{
+		buffer[i++] = strp[j++];
+	}
+	free(strp);
+	return (i);
+}
 #endif

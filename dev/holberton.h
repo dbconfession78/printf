@@ -29,4 +29,5 @@ char *uitohex(unsigned int);
 int put_binary(char *buffer, va_list list);
 int put_float(char *buffer, va_list list);
 int put_oct(char *buffer, va_list list);
+int put_pointer_address(char *buffer, va_list list);
 #endif

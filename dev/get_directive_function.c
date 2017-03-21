@@ -16,6 +16,7 @@ int  (*get_directive_function(char c))(char *s, va_list)
 		{'X', put_hex_upper},
 		{'b', put_binary},
 		{'o', put_oct},
+		{'p', put_pointer_address},
 		{'\0', NULL}
 	};
 
