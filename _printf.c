@@ -28,12 +28,6 @@ int _printf(char const *format, ...)
 				buffer_len += func(buffer + buffer_len, list);
 				format += 2; skip = 1;
 			}
-			else
-			{
-				format += 2;
-				buffer[buffer_len] = '%';
-				buffer_len++;
-			}
 		}
 		if (skip == 0)
 		{
