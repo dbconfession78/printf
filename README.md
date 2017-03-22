@@ -1,5 +1,5 @@
-# _printf
+# _printf()
 ## Description
 This repo was created by Christian Agha and Stuart Kuredjian while attending Holberton School in San Francisco. The purpose of the project was to recreate some parts of the C command printf.
 ### Functions that we could use
-** write, malloc, free, va_start, va_end, va_copy, va_arg **
+**write, malloc, free, va_start, va_end, va_copy, va_arg**
