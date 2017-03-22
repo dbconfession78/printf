@@ -1,4 +1,4 @@
-0x10: C - printf
+# _printf
 
 0. ???: produces output accoring to a specific data type format
    - returns the number of characters printed (exlucidng null terminator)
