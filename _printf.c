@@ -28,6 +28,17 @@ int _printf(char const *format, ...)
 				buffer_len += func(buffer + buffer_len, list);
 				format += 2; skip = 1;
 			}
+			else if (*(format + 2) == 's')
+			{
+				reset_buffer(buffer, 1024);
+				buffer_len = 0;
+				return (0);
+			}
+			else
+			{
+				buffer[buffer_len++] = '%';
+				format += 2;
+			}
 		}
 		if (skip == 0)
 		{
