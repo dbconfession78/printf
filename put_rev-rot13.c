@@ -46,9 +46,9 @@ int put_rot13(char *buffer, va_list list)
 				buffer[i] = rot13[j];
 				break;
 			}
-			if (j == 52)
-				buffer[i] = rot[i];
 		}
+		if (j == 52)
+			buffer[i] = rot[i];
 	}
 	return (i);
 }
