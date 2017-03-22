@@ -2,8 +2,8 @@
 ## Description
 This repo contains a replicated version of the C standard library function, printf.  
 ### Project requirements
-- Code must comply with the [Betty](https://github.com/holbertonschool/Betty) style and document checks.
-- Compile code using flags: `-Wall`, `-Werror`, `-Wextra`, `-pedantic`, `-Wno-format`
+- Code compliance with [Betty](https://github.com/holbertonschool/Betty) style and document guidelines.
+- Code compiled using flags: `-Wall`, `-Werror`, `-Wextra`, `-pedantic`, `-Wno-format`
 - Cannot use global variables.
 - Restricted to no more than 5 functions per file.
 - Function prototypes should be included in header file `holberton.h`
