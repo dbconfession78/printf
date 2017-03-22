@@ -24,7 +24,7 @@ This repo contains a replicated version of the C standard library function, prin
 - `get_directive_function.c`: calls pointer function corresponding to it's format selector
 - `get_int_length.c`: counts the number of digits in an integer.
 - `helper_funcs.c`: helper functions for formatting _printf arguments:
-      - `_strlen`: counts characters in string 
+      `_strlen`: counts characters in string 
       - `reverseStr`: reverses order of characters in a string
       - `dectohex`: converts a number from base 10 to base 16
       - `uitohex`: converts an unsigned integer to base 16
