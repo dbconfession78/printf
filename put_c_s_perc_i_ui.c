@@ -35,7 +35,7 @@ int put_string(char *buffer, va_list list)
 		return (i);
 	}
 
-	for (i = 0; i < 6; i++)
+	for (i = 0; i < 7; i++)
 		buffer[i] = nil[i];
 
 	return (7);
