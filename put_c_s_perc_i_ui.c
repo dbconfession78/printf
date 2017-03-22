@@ -35,10 +35,10 @@ int put_string(char *buffer, va_list list)
 		return (i);
 	}
 
-	for (i = 0; i < 7; i++)
+	for (i = 0; i < 6; i++)
 		buffer[i] = nil[i];
 
-	return (7);
+	return (6);
 }
 /**
  * put_percent - prints a char
