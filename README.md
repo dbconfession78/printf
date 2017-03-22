@@ -1,11 +1,5 @@
 # _printf
-
-0. ???: produces output accoring to a specific data type format
-   - returns the number of characters printed (exlucidng null terminator)
-   - writes output to standard output stream
-
-1. ???: Handles string conversion to d and i where:
-   - d is signed decimal
-   -i defaults as decimal but also allows hexadecimal if preceded by 0x and octal if preceded by 0.
-
-2. man page for printf
+## Description
+This repo was created by Christian Agha and Stuart Kuredjian while attending Holberton School in San Francisco. The purpose of the project was to recreate some parts of the C command printf.
+### Functions that we could use
+** write, malloc, free, va_start, va_end, va_copy, va_arg **
